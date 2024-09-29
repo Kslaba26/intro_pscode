@@ -1,4 +1,16 @@
 # Client Task C #
 # Add your pseudocode to this file below this line: #
 # ------------------------------------------------- #
+BEGIN
+
+    // Step 1: Initialize the starting and ending values
+    SET start_value TO 2         // Starting from 2 (first package)
+    SET end_value TO 50          // Ending at 50 (maximum packages)
+
+    // Step 2: Loop to print numbers from 2 to 50, counting by twos
+    FOR number FROM start_value TO end_value STEP 2 DO
+        DISPLAY number           // Print the current number (number of packages scanned)
+    ENDFOR
+
+END
 

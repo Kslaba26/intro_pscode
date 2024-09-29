@@ -1,4 +1,70 @@
 # Client Task B #
 # Add your pseudocode to this file below this line: #
 # ------------------------------------------------- #
+BEGIN
+
+    // Step 1: Initialize the warehouse layout
+    DEFINE a 2D grid warehouse[row][column]  // Each cell represents a section in the warehouse
+    SET start_position TO (start_row, start_column)  // The starting point of the customer
+    SET target_position TO (target_row, target_column)  // The location the customer is trying to reach
+
+    // Step 2: Set the customer’s initial position
+    SET current_position TO start_position
+    SET current_row TO start_row
+    SET current_column TO start_column
+
+    // Step 3: Main loop for customer movement
+    WHILE current_position != target_position DO
+
+        // Step 4: Display current position and prompt for direction
+        DISPLAY "You are at section (" + current_row + ", " + current_column + ")"
+        DISPLAY "Move: Enter a direction (north, south, east, west): "
+        READ direction
+
+        // Step 5: Handle movement based on the input direction
+        IF direction == "north" THEN
+            IF current_row > 0 THEN
+                SET current_row TO current_row - 1
+            ELSE
+                DISPLAY "You cannot move further north. You are at the warehouse edge."
+            ENDIF
+
+        ELSE IF direction == "south" THEN
+            IF current_row < max_row THEN
+                SET current_row TO current_row + 1
+            ELSE
+                DISPLAY "You cannot move further south. You are at the warehouse edge."
+            ENDIF
+
+        ELSE IF direction == "east" THEN
+            IF current_column < max_column THEN
+                SET current_column TO current_column + 1
+            ELSE
+                DISPLAY "You cannot move further east. You are at the warehouse edge."
+            ENDIF
+
+        ELSE IF direction == "west" THEN
+            IF current_column > 0 THEN
+                SET current_column TO current_column - 1
+            ELSE
+                DISPLAY "You cannot move further west. You are at the warehouse edge."
+            ENDIF
+
+        ELSE
+            DISPLAY "Invalid direction! Please enter north, south, east, or west."
+        ENDIF
+
+        // Step 6: Update the current position
+        SET current_position TO (current_row, current_column)
+
+        // Step 7: Check if the customer has reached the target location
+        IF current_position == target_position THEN
+            DISPLAY "You have reached your destination at section (" + target_row + ", " + target_column + ")!"
+        ELSE
+            DISPLAY "You are now at section (" + current_row + ", " + current_column + "). Keep moving."
+        ENDIF
+
+    ENDWHILE
+
+END
 

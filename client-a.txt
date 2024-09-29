@@ -1,4 +1,44 @@
 # Client Task A #
 # Add your pseudocode to this file below this line: #
 # ------------------------------------------------- #
+BEGIN
 
+    // Step 1: Generate a random number between 1 and 10
+    SET random_number TO a random integer between 1 and 10
+
+    // Step 2: Initialize the number of attempts
+    SET attempts TO 3
+
+    // Step 3: Start the guessing loop
+    WHILE attempts > 0 DO
+
+        // Step 4: Prompt player for a guess
+        DISPLAY "Guess a number between 1 and 10: "
+        READ player_guess
+
+        // Step 5: Check if the player's guess is correct
+        IF player_guess == random_number THEN
+            DISPLAY "Congratulations! You guessed the correct number!"
+            BREAK  // Exit the loop since the game is won
+
+        ELSE
+            SET attempts TO attempts - 1  // Decrease the number of attempts
+
+            // Step 6: Provide feedback if the guess is wrong
+            IF player_guess < random_number THEN
+                DISPLAY "Too low! Try again."
+            ELSE
+                DISPLAY "Too high! Try again."
+            ENDIF
+
+            // Step 7: Check if player has run out of attempts
+            IF attempts == 0 THEN
+                DISPLAY "Game Over! The correct number was " + random_number
+            ELSE
+                DISPLAY "You have " + attempts + " attempts remaining."
+            ENDIF
+        ENDIF
+
+    ENDWHILE
+
+END
